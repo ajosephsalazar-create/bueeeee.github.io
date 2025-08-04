@@ -1,0 +1,1528 @@
+/* ======================================================
+    RESET BÁSICO Y ESTILOS GENERALES
+====================================================== */
+/* Esto asegura que todos los elementos y sus pseudo-elementos (como ::before y ::after)
+   calculen su tamaño incluyendo el padding y el borde, lo que facilita el diseño. */
+*, *::before, *::after {
+    box-sizing: border-box;
+    /* Quita el margen predeterminado de todos los elementos. */
+    margin: 0;
+    /* Quita el padding predeterminado de todos los elementos. */
+    padding: 0;
+}
+
+/* Establece el comportamiento de desplazamiento suave para anclas y la base de la fuente para rem. */
+html {
+    scroll-behavior: smooth;  /* Hace que el scroll sea suave al saltar a secciones de la página. */
+    font-size: 16px; /* Establece el tamaño de fuente base para que las unidades 'rem' se calculen a partir de aquí. */
+}
+
+/* Estilos para el cuerpo de la página (fondo, fuente, color de texto, etc.). */
+body {
+    /* Aquí colocamos la imagen de fondo */
+    background-image: url('./img/fonlo.png'); /* ¡La imagen de fondo para tu página! */
+    
+    font-family: var(--fuente-principal); /* Usa una fuente principal definida en variables CSS. */
+    line-height: 1.6; /* Espaciado entre líneas del texto para mejor legibilidad. */
+    color: var(--color-texto-oscuro); /* Color de texto oscuro, definido en variables CSS. */
+    /* El degradado de rosa claro a rosa un poco más oscuro ha sido comentado.
+       Si quieres que la imagen esté Y el degradado se vea por encima, avísame. */
+    /* background-image: linear-gradient(to right, #f56575, #d4b5b3); */ 
+    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita. */
+    background-size: cover; /* Hace que la imagen de fondo cubra toda el área, pudiendo recortar los bordes. */
+    background-attachment: fixed; /* Mantiene la imagen de fondo fija mientras se desplaza la página. */
+    background-position: center center; /* Centra la imagen de fondo. */
+    background-color: var(--color-fondo-claro); /* Color de fondo de respaldo si la imagen no carga. */
+    overflow-x: hidden; /* Evita el desplazamiento horizontal no deseado. */
+}
+
+/* Estilos para todos los enlaces (quitando el subrayado y heredando el color). */
+a {
+    text-decoration: none; /* Quita el subrayado de los enlaces. */
+    color: inherit; /* Los enlaces heredan el color de su elemento padre. */
+}
+
+/* ======================================================
+    CONTENEDORES GENERALES
+====================================================== */
+/* Estos estilos se aplican a contenedores principales para centrar el contenido y dar un padding uniforme. */
+.container,
+.footer-container,
+.header-flex,
+.cards,
+.hero-buttons {
+    max-width: 1200px; /* Ancho máximo para el contenido. */
+    margin: 0 auto; /* Centra el contenedor horizontalmente. */
+    padding: 0 var(--espaciado); /* Espaciado interno horizontal, usando una variable CSS. */
+}
+
+/* Estilos para las secciones de la página (padding y línea divisoria). */
+section {
+    padding: var(--espaciado) 0; /* Espaciado interno vertical para cada sección. */
+    border-bottom: 1px solid #e3adad; /* Línea divisoria en la parte inferior de cada sección. */
+}
+
+/* ======================================================
+    HEADER / NAV (Cabecera y Menú de Navegación)
+====================================================== */
+/* Estilos para la cabecera (sticky, fondo transparente, sombra). */
+header {
+    position: sticky; /* Hace que la cabecera se quede pegada en la parte superior al hacer scroll. */
+    top: 0; /* Se pega en la parte superior. */
+    z-index: 1000; /* Asegura que la cabecera esté por encima de otros elementos. */
+    background-color: rgba(229, 209, 186, 0.85); /* Color de fondo secundario con transparencia. */
+    backdrop-filter: blur(6px); /* Efecto de desenfoque detrás de la cabecera. */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Sombra suave debajo de la cabecera. */
+    padding: 1rem 0.5rem; /* Más altura vertical para la cabecera. */
+    transition: all 0.3s ease; /* Transición suave para cambios en la cabecera. */
+}
+
+/* Contenedor flexible dentro de la cabecera para organizar elementos. */
+.header-flex {
+    padding: 0.5rem 2rem; /* Más espacio lateral dentro del contenedor. */
+    display: flex; /* Usa Flexbox para alinear elementos. */
+    justify-content: space-between; /* Espacia los elementos del logo y la navegación. */
+    align-items: center; /* Centra verticalmente los elementos. */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas. */
+}
+
+/* Estilos para el logo (imagen y título). */
+.logo {
+    display: flex; /* Usa Flexbox para alinear la imagen y el texto del logo. */
+    align-items: center; /* Centra verticalmente la imagen y el texto del logo. */
+    gap: 1rem; /* Espacio entre la imagen y el texto. */
+    text-decoration: none; /* Quita el subrayado del enlace del logo. */
+    color: var(--color-principal); /* Color principal para el texto del logo. */
+}
+
+/* Tamaño de la imagen del logo. */
+.logo img {
+    max-height: 65px; /* Altura máxima para la imagen del logo. */
+    border-radius: 10px; /* Bordes redondeados para la imagen del logo. */
+}
+
+/* Tamaño de la fuente del título del logo. */
+.logo h1 {
+    font-size: 1.8rem;
+}
+
+/* Lista de navegación (los enlaces del menú). */
+.nav-list {
+    list-style: none; /* Quita los puntos de la lista. */
+    display: flex; /* Alinea los elementos de la lista horizontalmente. */
+    gap: 1.5rem; /* Espacio entre cada elemento de la lista. */
+}
+
+/* Estilos para los enlaces de la navegación. */
+.nav-list a {
+    text-decoration: none; /* Quita el subrayado de los enlaces. */
+    color: var(--color-texto); /* Color de texto para los enlaces. */
+    font-weight: bold; /* Texto en negrita. */
+    transition: color 0.3s ease; /* Transición suave al cambiar de color. */
+}
+
+/* Cambio de color al pasar el ratón por los enlaces de navegación. */
+.nav-list a:hover {
+    color: var(--color-principal); /* Color principal al pasar el ratón. */
+}
+
+/* Estilo para cuando un enlace de navegación está enfocado (con el teclado, por ejemplo). */
+.nav-list a:focus {
+    outline: 2px dashed var(--color-principal); /* Borde punteado para indicar enfoque. */
+    outline-offset: 4px; /* Separación del borde punteado del texto. */
+    border-radius: 4px; /* Bordes redondeados para el foco. */
+}
+
+/* ======================================================
+    HERO / BIENVENIDA (Sección principal de bienvenida)
+====================================================== */
+/* Fondo de la sección de bienvenida con un degradado y una imagen. */
+.bienvenida {
+    background: linear-gradient(rgba(231, 138, 137, 0.65), rgba(255, 245, 225, 0.65)), /* Degradado de color. */
+      url('./img/cocina_nikkei.jpg') center/cover no-repeat; /* Imagen de fondo centrada y que cubre todo. */
+    text-align: center; /* Centra el texto. */
+    padding: 5rem 2rem; /* Espaciado interno. */
+    border-radius: 1rem; /* Bordes redondeados. */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Sombra suave. */
+    display: flex; /* Usa Flexbox para centrar el contenido verticalmente. */
+    justify-content: center; /* Centra el contenido horizontalmente. */
+    align-items: center; /* Centra el contenido verticalmente. */
+    min-height: 450px; /* Altura mínima de la sección. */
+    color: var(--color-texto); /* Color del texto. */
+}
+
+/* Contenido dentro de la sección de bienvenida. */
+.bienvenida-contenido {
+    max-width: 800px; /* Ancho máximo para el contenido. */
+    margin: 0 auto; /* Centra el contenido. */
+}
+
+/* Título principal de la sección de bienvenida. */
+.bienvenida h2 {
+    font-size: 3rem; /* Tamaño de la fuente. */
+    margin-bottom: 1rem; /* Margen inferior. */
+    color: var(--color-principal); /* Color principal. */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Sombra de texto. */
+}
+
+/* Subtítulo de la sección de bienvenida. */
+.bienvenida h3 {
+    font-size: 1.5rem; /* Tamaño de la fuente. */
+    font-style: italic; /* Texto en cursiva. */
+    margin-bottom: 2rem; /* Margen inferior. */
+    color: #0d0909; /* Color del texto. */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Sombra de texto. */
+}
+
+/* ======================================================
+    BOTONES GENERALES
+====================================================== */
+/* Estilos base para todos los botones. */
+.btn {
+    background: var(--color-boton); /* Color de fondo del botón. */
+    color: rgba(213, 9, 9, 0.928); /* Color del texto del botón. */
+    padding: 0.8rem 1.6rem; /* Espaciado interno. */
+    border: none; /* Sin borde. */
+    border-radius: 8px; /* Bordes redondeados. */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar por encima. */
+    font-size: 1rem; /* Tamaño de la fuente. */
+    text-decoration: none; /* Quita el subrayado si es un enlace. */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios. */
+}
+
+/* Efecto al pasar el ratón por los botones. */
+.btn:hover {
+    background: var(--color-hover); /* Cambia el color de fondo. */
+    transform: scale(1.05); /* Agranda ligeramente el botón. */
+}
+
+/* Estilos para un botón secundario (bordeado). */
+.btn.btn-secundario {
+    background: transparent; /* Fondo transparente. */
+    color: var(--color-principal); /* Color principal para el texto. */
+    border: 2px solid var(--color-principal); /* Borde con el color principal. */
+    font-weight: bold; /* Texto en negrita. */
+    transition: all 0.3s ease; /* Transición suave. */
+}
+
+/* Efecto al pasar el ratón por el botón secundario. */
+.btn.btn-secundario:hover {
+    background: var(--color-principal); /* Fondo con el color principal. */
+    color: white; /* Texto blanco. */
+}
+
+/* Botón flotante (para Reservas). */
+.btn-flotante {
+    position: fixed; /* Posición fija en la pantalla. */
+    bottom: 20px; /* A 20px del borde inferior. */
+    left: 20px; /* A 20px del borde izquierdo (cambio clave para moverlo a la izquierda). */
+    z-index: 998; /* Asegura que esté por encima de la mayoría de los elementos, pero debajo del chatbot si existe. */
+    width: 60px; /* Ancho del botón. */
+    height: 60px; /* Alto del botón (para que sea circular). */
+    background-color: #f0a0a0; /* Color principal de Miso (un tono rosado). */
+    color: white; /* Color del icono. */
+    border-radius: 50%; /* Hace que el botón sea circular. */
+    display: flex; /* Usa Flexbox para centrar el icono. */
+    align-items: center; /* Centra el icono verticalmente. */
+    justify-content: center; /* Centra el icono horizontalmente. */
+    box-shadow: 0 4px 12px rgba(221, 129, 129, 0.2); /* Sombra suave. */
+    cursor: pointer; /* Cambia el cursor a una mano. */
+    font-size: 1.8rem; /* Tamaño del icono. */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves. */
+    border: none; /* Sin borde. */
+    text-decoration: none; /* Quita el subrayado si es un enlace. */
+}
+
+/* Efecto al pasar el ratón por el botón flotante. */
+.btn-flotante:hover {
+    background-color: #e9b0b0; /* Color un poco más claro al pasar el ratón. */
+    transform: scale(1.08); /* Agranda ligeramente el botón. */
+    box-shadow: 0 6px 16px rgba(221, 129, 129, 0.3); /* Aumenta la sombra. */
+}
+
+/* Media query para el botón flotante en pantallas más pequeñas (móviles). */
+@media (max-width: 768px) {
+    .btn-flotante {
+        bottom: 15px; /* Más cerca del borde inferior. */
+        left: 15px; /* Más cerca del borde izquierdo. */
+        width: 55px; /* Un poco más pequeño. */
+        height: 55px; /* Un poco más pequeño. */
+        font-size: 1.6rem; /* Icono un poco más pequeño. */
+    }
+}
+
+/* ======================================================
+    SECCIÓN CARACTERÍSTICAS
+====================================================== */
+/* Contenedor de las tarjetas de características (alineación y espaciado). */
+.caracteristicas .cards {
+    display: flex; /* Usa Flexbox. */
+    justify-content: center; /* Centra las tarjetas horizontalmente. */
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en pantallas pequeñas. */
+    gap: 2rem; /* Espacio entre las tarjetas. */
+}
+
+/* Estilos para las tarjetas individuales de características y otras tarjetas genéricas. */
+.caracteristica-card,
+.card {
+    background: #fffaf5; /* Color de fondo de la tarjeta. */
+    padding: 2rem 1.5rem; /* Espaciado interno. */
+    border-radius: 1rem; /* Bordes redondeados. */
+    box-shadow: 0 6px 15px rgba(220, 13, 13, 0.06); /* Sombra suave. */
+    text-align: center; /* Centra el texto. */
+    max-width: 320px; /* Ancho máximo de la tarjeta. */
+    flex: 1; /* Permite que las tarjetas se estiren y encojan. */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves. */
+}
+
+/* Efecto al pasar el ratón por las tarjetas de características. */
+.caracteristica-card:hover,
+.card:hover {
+    transform: translateY(-8px); /* Levanta la tarjeta ligeramente. */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Aumenta la sombra. */
+}
+
+/* Tamaño y margen de las imágenes dentro de las tarjetas de características. */
+.caracteristica-card img {
+    width: 70px; /* Ancho de la imagen. */
+    margin-bottom: 1rem; /* Margen inferior. */
+}
+
+/* Título dentro de las tarjetas de características. */
+.caracteristica-card h3 {
+    font-size: 1.4rem; /* Tamaño de la fuente. */
+    margin-bottom: 1rem; /* Margen inferior. */
+    color: var(--color-principal); /* Color principal. */
+}
+
+/* Párrafo dentro de las tarjetas de características. */
+.caracteristica-card p {
+    font-size: 1rem; /* Tamaño de la fuente. */
+    color: #555; /* Color del texto. */
+    line-height: 1.5; /* Espaciado entre líneas. */
+}
+
+/* ======================================================
+    COMENTARIOS / TESTIMONIOS
+====================================================== */
+/* Sección del carrusel de comentarios. */
+.comentarios-carousel {
+    background-color: #fff5ef; /* Color de fondo. */
+    padding: var(--espaciado) 0; /* Espaciado interno vertical. */
+}
+
+/* Contenedor del carrusel. */
+.carousel-container {
+    position: relative; /* Para posicionar las flechas. */
+    max-width: 1200px; /* Ancho máximo. */
+    margin: 0 auto; /* Centrar. */
+    padding: 0 3rem; /* Espaciado horizontal. */
+    overflow: hidden; /* Oculta el contenido que se sale. */
+}
+
+/* Pista del carrusel (donde se desplazan los testimonios). */
+.carousel-track {
+    display: flex; /* Usa Flexbox para alinear los testimonios. */
+    gap: 2rem; /* Espacio entre testimonios. */
+    scroll-snap-type: x mandatory; /* Hace que el scroll se detenga en cada testimonio. */
+    overflow-x: auto; /* Permite el scroll horizontal. */
+    scroll-behavior: smooth; /* Desplazamiento suave. */
+    padding: 2rem 0; /* Espaciado interno. */
+}
+
+/* Estilos para la barra de desplazamiento del carrusel (navegadores Webkit). */
+.carousel-track::-webkit-scrollbar {
+    height: 6px; /* Altura de la barra de desplazamiento. */
+}
+
+/* Estilos para el pulgar de la barra de desplazamiento del carrusel. */
+.carousel-track::-webkit-scrollbar-thumb {
+    background-color: rgba(136, 14, 14, 0.3); /* Color del pulgar. */
+    border-radius: 3px; /* Bordes redondeados del pulgar. */
+}
+
+/* Estilos para cada testimonio individual. */
+.testimonial {
+    flex: 0 0 calc(33.333% - 1.5rem); /* Cada testimonio ocupa un tercio del ancho menos el espacio. */
+    background: #fff; /* Fondo blanco. */
+    padding: 1.8rem; /* Espaciado interno. */
+    border-radius: 1rem; /* Bordes redondeados. */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06); /* Sombra suave. */
+    scroll-snap-align: start; /* Alinea el testimonio al inicio al hacer scroll. */
+    transition: transform 0.3s ease; /* Transición suave. */
+    font-style: italic; /* Texto en cursiva. */
+    text-align: center; /* Centra el texto. */
+}
+
+/* Efecto al pasar el ratón por un testimonio. */
+.testimonial:hover {
+    transform: translateY(-5px); /* Levanta el testimonio ligeramente. */
+}
+
+/* Párrafo dentro de un testimonio. */
+.testimonial p {
+    font-size: 1rem; /* Tamaño de la fuente. */
+    margin-bottom: 1rem; /* Margen inferior. */
+}
+
+/* Nombre de la persona que dejó el testimonio. */
+.testimonial small {
+    display: block; /* Ocupa su propia línea. */
+    font-weight: bold; /* Texto en negrita. */
+    color: var(--color-principal); /* Color principal. */
+}
+
+/* Flechas del carrusel (botones de navegación). */
+.carousel-btn {
+    position: absolute; /* Posición absoluta con respecto al contenedor del carrusel. */
+    top: 50%; /* Centrado verticalmente. */
+    transform: translateY(-50%); /* Ajusta el centrado vertical. */
+    background: var(--color-principal); /* Color principal de fondo. */
+    color: white; /* Color del icono. */
+    border: none; /* Sin borde. */
+    font-size: 2rem; /* Tamaño del icono. */
+    width: 40px; /* Ancho del botón. */
+    height: 40px; /* Alto del botón. */
+    border-radius: 50%; /* Hace que el botón sea circular. */
+    cursor: pointer; /* Cambia el cursor a una mano. */
+    z-index: 10; /* Asegura que esté por encima del contenido. */
+    transition: background 0.3s ease; /* Transición suave del fondo. */
+}
+
+/* Efecto al pasar el ratón por las flechas del carrusel. */
+.carousel-btn:hover {
+    background: var(--color-hover); /* Cambia el color de fondo. */
+}
+
+/* Flecha de "anterior" del carrusel. */
+.carousel-btn.prev {
+    left: 0; /* Posicionada a la izquierda. */
+}
+
+/* Flecha de "siguiente" del carrusel. */
+.carousel-btn.next {
+    right: 0; /* Posicionada a la derecha. */
+}
+
+/* ======================================================
+    SECCIÓN NUESTRO IMPACTO
+====================================================== */
+/* Sección de impacto (fondo, padding, centrado). */
+.impacto {
+    background: linear-gradient(to right, #fff5e7, #ffe3dc); /* Degradado de fondo. */
+    padding: 4rem 2rem; /* Espaciado interno. */
+    text-align: center; /* Centra el texto. */
+    border-radius: 1rem; /* Bordes redondeados. */
+    margin-top: 3rem; /* Margen superior. */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); /* Sombra suave. */
+}
+
+/* Contenedor de las tarjetas de impacto. */
+.impacto-cards {
+    display: flex; /* Usa Flexbox. */
+    justify-content: center; /* Centra las tarjetas. */
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan. */
+    gap: 2rem; /* Espacio entre tarjetas. */
+    margin-top: 2rem; /* Margen superior. */
+}
+
+/* Estilos para cada elemento individual de impacto. */
+.impacto-item {
+    background: #fff; /* Fondo blanco. */
+    border-radius: 1rem; /* Bordes redondeados. */
+    padding: 2rem 1.5rem; /* Espaciado interno. */
+    width: 250px; /* Ancho fijo. */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Sombra suave. */
+    transition: transform 0.3s ease; /* Transición suave. */
+}
+
+/* Efecto al pasar el ratón por un elemento de impacto. */
+.impacto-item:hover {
+    transform: translateY(-6px); /* Levanta el elemento ligeramente. */
+}
+
+/* Título (número) dentro de un elemento de impacto. */
+.impacto-item h3 {
+    font-size: 2.5rem; /* Tamaño grande de la fuente. */
+    color: var(--color-principal); /* Color principal. */
+    margin-bottom: 0.5rem; /* Margen inferior. */
+}
+
+/* Párrafo (descripción) dentro de un elemento de impacto. */
+.impacto-item p {
+    font-size: 1.1rem; /* Tamaño de la fuente. */
+    color: #555; /* Color del texto. */
+}
+
+/* ======================================================
+    RESERVAS / FORMULARIO
+====================================================== */
+/* Sección de reservas (fondo, padding, centrado, sombra). */
+.reservas {
+    background: linear-gradient(145deg, #fff3f3, #ffeaea); /* Degradado de fondo. */
+    padding: 4rem 2rem; /* Espaciado interno. */
+    border-radius: 2rem; /* Bordes muy redondeados. */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08); /* Sombra más pronunciada. */
+    text-align: center; /* Centra el texto. */
+    margin-top: 4rem; /* Margen superior. */
+    max-width: 850px; /* Ancho máximo. */
+    margin-left: auto; /* Centra horizontalmente. */
+    margin-right: auto; /* Centra horizontalmente. */
+    transition: all 0.4s ease; /* Transición suave. */
+}
+
+/* Título de la sección de reservas. */
+.reservas h2 {
+    font-size: 2.8rem; /* Tamaño grande de la fuente. */
+    margin-bottom: 0.5rem; /* Margen inferior. */
+    color: var(--color-principal); /* Color principal. */
+}
+
+/* Párrafo de descripción en la sección de reservas. */
+.reservas p {
+    font-size: 1.2rem; /* Tamaño de la fuente. */
+    margin-bottom: 2rem; /* Margen inferior. */
+    color: #555; /* Color del texto. */
+    font-style: italic; /* Texto en cursiva. */
+}
+
+/* Formulario de reserva (diseño de cuadrícula). */
+.formulario-reserva {
+    display: grid; /* Usa CSS Grid. */
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual ancho. */
+    gap: 2rem; /* Espacio entre elementos de la cuadrícula. */
+    background: #ffffff; /* Fondo blanco. */
+    border-radius: 1.5rem; /* Bordes redondeados. */
+    padding: 2.5rem; /* Espaciado interno. */
+    box-shadow: inset 0 0 0 2px #fff0f0; /* Borde interior suave. */
+    position: relative; /* Para posicionamiento futuro si se necesita. */
+}
+
+/* Grupo de formulario (label e input). */
+.form-group {
+    display: flex; /* Usa Flexbox. */
+    flex-direction: column; /* Apila elementos verticalmente. */
+    gap: 0.5rem; /* Espacio entre label e input. */
+    position: relative; /* Para posicionamiento de iconos o mensajes. */
+}
+
+/* Etiqueta de los campos del formulario. */
+.form-group label {
+    font-weight: 600; /* Texto seminegrita. */
+    font-size: 1rem; /* Tamaño de la fuente. */
+    color: var(--color-principal); /* Color principal. */
+    display: flex; /* Usa Flexbox para alinear texto e icono. */
+    align-items: center; /* Centra verticalmente. */
+    gap: 0.5rem; /* Espacio entre texto e icono. */
+}
+
+/* Icono dentro de la etiqueta del formulario. */
+.form-group label i {
+    color: var(--color-principal); /* Color principal para el icono. */
+}
+
+/* Campos de entrada del formulario. */
+.form-group input {
+    padding: 0.75rem 1rem; /* Espaciado interno. */
+    border: 2px solid #eee; /* Borde suave. */
+    border-radius: 8px; /* Bordes redondeados. */
+    font-size: 1rem; /* Tamaño de la fuente. */
+    transition: border 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves al enfocar. */
+}
+
+/* Efecto al enfocar un campo de entrada. */
+.form-group input:focus {
+    border-color: var(--color-principal); /* Cambia el color del borde. */
+    outline: none; /* Quita el contorno predeterminado del navegador. */
+    box-shadow: 0 0 0 2px rgba(136, 14, 14, 0.1); /* Sombra suave al enfocar. */
+}
+
+/* Botón de envío del formulario de reserva. */
+.formulario-reserva .btn {
+    grid-column: span 2; /* Ocupa las dos columnas de la cuadrícula. */
+    margin: 0 auto; /* Centra el botón horizontalmente. */
+    margin-top: 1.5rem; /* Margen superior. */
+    padding: 0.8rem 2.5rem; /* Espaciado interno. */
+    font-size: 1.1rem; /* Tamaño de la fuente. */
+}
+
+/* ======================================================
+    UBICACIÓN
+====================================================== */
+/* Sección de ubicación (fondo, padding, centrado, sombra). */
+.ubicacion {
+    background: linear-gradient(to left, #fff3ec, #ffe8e1); /* Degradado de fondo. */
+    padding: 4rem 1rem; /* Espaciado interno. */
+    border-radius: 1rem; /* Bordes redondeados. */
+    margin-top: 3rem; /* Margen superior. */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04); /* Sombra suave. */
+    text-align: center; /* Centra el texto. */
+}
+
+/* Contenido de la sección de ubicación (imagen y texto). */
+.ubicacion-contenido {
+    display: flex; /* Usa Flexbox. */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan. */
+    gap: 2rem; /* Espacio entre los elementos. */
+    align-items: center; /* Centra verticalmente los elementos. */
+    justify-content: center; /* Centra horizontalmente los elementos. */
+    max-width: 1100px; /* Ancho máximo. */
+    margin: 0 auto; /* Centra. */
+}
+
+/* Texto de la sección de ubicación. */
+.ubicacion-texto {
+    flex: 1 1 300px; /* Permite que el texto se estire y encoja, con un mínimo de 300px. */
+}
+
+/* Título en el texto de ubicación. */
+.ubicacion-texto h2 {
+    font-size: 2.5rem; /* Tamaño grande de la fuente. */
+    margin-bottom: 1rem; /* Margen inferior. */
+    color: var(--color-principal); /* Color principal. */
+}
+
+/* Párrafo en el texto de ubicación. */
+.ubicacion-texto p {
+    font-size: 1.1rem; /* Tamaño de la fuente. */
+    margin-bottom: 1rem; /* Margen inferior. */
+    color: #444; /* Color del texto. */
+}
+
+/* Botón en el texto de ubicación. */
+.ubicacion-texto a.btn {
+    margin-top: 1rem; /* Margen superior. */
+}
+
+/* Contenedor de la imagen del mapa. */
+.ubicacion-imagen {
+    flex: 1 1 350px; /* Permite que la imagen se estire y encoja, con un mínimo de 350px. */
+    text-align: center; /* Centra la imagen. */
+}
+
+/* Estilos para el mapa (imagen). */
+.ubicacion-imagen .mapa {
+    border: 2px solid #ddd; /* Borde suave. */
+    border-radius: 0.75rem; /* Bordes redondeados. */
+    max-width: 100%; /* Asegura que la imagen no se desborde. */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* Sombra suave. */
+    transition: transform 0.3s ease; /* Transición suave. */
+}
+
+/* Efecto al pasar el ratón por la imagen del mapa. */
+.ubicacion-imagen .mapa:hover {
+    transform: scale(1.03); /* Agranda ligeramente la imagen. */
+}
+
+/* ======================================================
+    FOOTER (Pie de página)
+====================================================== */
+/* Estilos para el pie de página. */
+footer {
+    background: var(--color-principal); /* Color principal de fondo. */
+    color: white; /* Color del texto. */
+    padding: 2rem 1rem; /* Espaciado interno. */
+    margin-top: 2rem; /* Margen superior. */
+}
+
+/* Contenedor principal del pie de página. */
+.footer-container {
+    display: flex; /* Usa Flexbox. */
+    justify-content: space-between; /* Espacia los elementos. */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan. */
+    gap: 2rem; /* Espacio entre elementos. */
+    padding: 2rem 0; /* Espaciado vertical. */
+}
+
+/* Estilos para las secciones del pie de página (marca, enlaces, contacto). */
+.footer-brand,
+.footer-links,
+.footer-contacto {
+    flex: 1 1 250px; /* Permite que cada sección se estire y encoja, con un mínimo de 250px. */
+}
+
+/* Margen inferior de la imagen de marca en el pie de página. */
+.footer-brand img {
+    margin-bottom: 1rem;
+}
+
+/* Párrafo de texto en la sección de marca del pie de página. */
+.footer-brand p {
+    max-width: 300px; /* Ancho máximo. */
+    margin-bottom: 1rem; /* Margen inferior. */
+    color: #ffe; /* Color del texto. */
+}
+
+/* Títulos de las secciones de enlaces y contacto del pie de página. */
+.footer-links h4,
+.footer-contacto h4 {
+    font-size: 1.2rem; /* Tamaño de la fuente. */
+    margin-bottom: 1rem; /* Margen inferior. */
+    color: rgb(6, 2, 2); /* Color blanco. */
+}
+
+/* Quita los puntos de la lista de enlaces en el pie de página. */
+.footer-links ul {
+    list-style: none; /* Sin viñetas. */
+    padding: 0; /* Sin padding. */
+}
+
+/* Margen inferior para cada elemento de la lista de enlaces. */
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+/* Estilos para los enlaces en el pie de página. */
+.footer-links a {
+    color: #fcecec; /* Color del texto. */
+    text-decoration: none; /* Sin subrayado. */
+}
+
+/* Subrayado al pasar el ratón por los enlaces del pie de página. */
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Párrafos en la sección de contacto del pie de página. */
+.footer-contacto p {
+    margin: 0.5rem 0; /* Margen vertical. */
+    color: #f0e0e0; /* Color del texto. */
+}
+
+/* Contenedor de los iconos de redes sociales. */
+.rrss a {
+    margin-right: 1rem; /* Margen derecho. */
+    display: inline-block; /* Permite aplicar transformaciones. */
+}
+
+/* Estilos para el texto de derechos de autor. */
+.copy {
+    text-align: center; /* Centra el texto. */
+    margin-top: 1.5rem; /* Margen superior. */
+    font-size: 0.85rem; /* Tamaño de la fuente. */
+    color: #eee; /* Color del texto. */
+    opacity: 0.85; /* Ligera transparencia. */
+}
+
+/* ======================================================
+    SUBCATEGORÍAS DEL MENÚ
+====================================================== */
+/* Contenedor de las subcategorías de navegación. */
+.nav-subcategorias {
+    display: flex; /* Usa Flexbox. */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan. */
+    justify-content: center; /* Centra los elementos. */
+    gap: 1rem; /* Espacio entre elementos. */
+    margin-top: 1rem; /* Margen superior. */
+}
+
+/* Título de la sección general. */
+.section-title {
+    text-align: center; /* Centra el texto. */
+    font-size: 2rem; /* Tamaño de la fuente. */
+    margin-bottom: 1rem; /* Margen inferior. */
+}
+
+/* Subtítulo de la sección. */
+.section-subtitle {
+    text-align: center; /* Centra el texto. */
+    font-size: 1.6rem; /* Tamaño de la fuente. */
+    margin-top: 2rem; /* Margen superior. */
+}
+
+/* Títulos de las tarjetas en el menú. */
+.cards-menu h3 {
+    text-align: center; /* Centra el texto. */
+    margin: 30px 0 15px; /* Margen. */
+}
+
+/* Contenedor de las tarjetas del menú. */
+.cards-menu .cards {
+    display: flex; /* Usa Flexbox. */
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan. */
+    justify-content: center; /* Centra las tarjetas. */
+    gap: 20px; /* Espacio entre tarjetas. */
+}
+
+/* Estilos para cada tarjeta individual del menú. */
+.cards-menu .card {
+    background-color: #dfdbdb; /* Color de fondo. */
+    border-radius: 10px; /* Bordes redondeados. */
+    overflow: hidden; /* Oculta el contenido que se sale. */
+    text-align: center; /* Centra el texto. */
+    padding: 10px; /* Espaciado interno. */
+    max-width: 200px; /* Ancho máximo. */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave. */
+}
+
+/* Imágenes dentro de las tarjetas del menú. */
+.cards-menu .card img {
+    width: 100%; /* Ocupa todo el ancho disponible. */
+    height: auto; /* Mantiene la proporción. */
+    border-radius: 10px; /* Bordes redondeados. */
+}
+
+/* Precio del producto en la tarjeta del menú. */
+.precio {
+    color: rgb(8, 215, 8); /* Color verde. */
+    font-weight: bold; /* Texto en negrita. */
+    font-size: 1.1rem; /* Tamaño de la fuente. */
+    margin-top: 0.5rem; /* Margen superior. */
+}
+
+/* ======================================================
+    ANIMACIONES
+====================================================== */
+/* Animación de entrada con desvanecimiento. */
+.fade-in {
+    opacity: 0; /* Empieza invisible. */
+    transform: translateY(20px); /* Empieza un poco abajo. */
+    animation: fadeIn 1s forwards; /* Aplica la animación 'fadeIn'. */
+}
+
+/* Animación de entrada con desvanecimiento y subida. */
+.fade-in-up {
+    opacity: 0; /* Empieza invisible. */
+    transform: translateY(20px); /* Empieza un poco abajo. */
+    animation: fadeInUp 0.8s ease forwards; /* Aplica la animación 'fadeInUp'. */
+}
+
+/* Animación de entrada con desvanecimiento y bajada. */
+.fade-in-top {
+    opacity: 0; /* Empieza invisible. */
+    transform: translateY(-20px); /* Empieza un poco arriba. */
+    animation: fadeInTop 1s forwards; /* Aplica la animación 'fadeInTop'. */
+}
+
+/* Definición de la animación 'fadeIn'. */
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Termina completamente visible. */
+        transform: translateY(0); /* Termina en su posición original. */
+    }
+}
+
+/* Definición de la animación 'fadeInUp'. */
+@keyframes fadeInUp {
+    to {
+        opacity: 1; /* Termina completamente visible. */
+        transform: translateY(0); /* Termina en su posición original. */
+    }
+}
+
+/* Definición de la animación 'fadeInTop'. */
+@keyframes fadeInTop {
+    to {
+        opacity: 1; /* Termina completamente visible. */
+        transform: translateY(0); /* Termina en su posición original. */
+    }
+}
+
+/* Estilos generales para un grupo de tarjetas (flexbox para diseño). */
+.cards {
+    display: flex; /* Usa Flexbox. */
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan. */
+    justify-content: center; /* Centra las tarjetas horizontalmente. */
+    align-items: center; /* Centra las tarjetas verticalmente. */
+    gap: 2rem; /* Espacio entre tarjetas. */
+    margin-top: 1.5rem; /* Margen superior. */
+}
+
+/* Estilos para una tarjeta individual. */
+.card {
+    background: #fff; /* Fondo blanco. */
+    padding: 1.5rem; /* Espaciado interno. */
+    border-radius: 1rem; /* Bordes redondeados. */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave. */
+    text-align: center; /* Centra el texto. */
+    flex: 1 1 300px; /* Permite que la tarjeta se estire y encoja, con un mínimo de 300px. */
+    max-width: 500px; /* Ancho máximo. */
+}
+
+/* Sección de cultura con diseño horizontal. */
+.cultura-horizontal {
+    padding: 3rem 1rem; /* Espaciado interno. */
+    border-bottom: 1px solid #ddd; /* Línea divisoria inferior. */
+}
+
+/* Bloque de cultura (imagen y texto). */
+.cultura-bloque {
+    display: flex; /* Usa Flexbox. */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan. */
+    align-items: center; /* Centra verticalmente. */
+    gap: 2rem; /* Espacio entre los elementos. */
+    margin-top: 1rem; /* Margen superior. */
+}
+
+/* Contenedor de la imagen de cultura. */
+.cultura-imagen {
+    flex: 1 1 300px; /* Permite que la imagen se estire y encoja, con un mínimo de 300px. */
+}
+
+/* Imagen dentro de la sección de cultura. */
+.cultura-imagen img {
+    width: 100%; /* Ocupa todo el ancho disponible. */
+    max-width: 400px; /* Ancho máximo. */
+    border-radius: 1rem; /* Bordes redondeados. */
+    box-shadow: 0 6px 12px rgba(236, 233, 233, 0.1); /* Sombra suave. */
+}
+
+/* Texto dentro de la sección de cultura. */
+.cultura-texto {
+    flex: 1 1 300px; /* Permite que el texto se estire y encoja, con un mínimo de 300px. */
+    font-size: 1.1rem; /* Tamaño de la fuente. */
+    color: #050000; /* Color del texto. */
+    line-height: 1.6; /* Espaciado entre líneas. */
+}
+
+/* Alineación del título a la derecha. */
+.titulo-derecha {
+    text-align: right;
+}
+
+/* Sección de horario y reloj. */
+.horario-reloj {
+    text-align: center; /* Centra el texto. */
+    padding: 3rem 1rem; /* Espaciado interno. */
+}
+
+/* Título de la sección de horario (con icono). */
+.horario-reloj h2 {
+    display: flex; /* Usa Flexbox para alinear el texto y el icono. */
+    justify-content: center; /* Centra horizontalmente. */
+    align-items: center; /* Centra verticalmente. */
+    gap: 0.5rem; /* Espacio entre el texto y el icono. */
+    font-size: 2.2rem; /* Tamaño de la fuente. */
+    margin-bottom: 1rem; /* Margen inferior. */
+}
+
+/* Lista de horarios. */
+.horario-reloj ul {
+    list-style: none; /* Sin viñetas. */
+    padding: 0; /* Sin padding. */
+    margin-top: 1rem; /* Margen superior. */
+}
+
+/* Elementos de la lista de horarios. */
+.horario-reloj ul li {
+    margin-bottom: 0.5rem; /* Margen inferior. */
+    font-size: 1.1rem; /* Tamaño de la fuente. */
+}
+
+/* Estilos mejorados para el pie de página. */
+.footer {
+    background: var(--color-principal); /* Color principal de fondo. */
+    color: rgb(1, 1, 1); /* Color del texto (casi negro). */
+    padding: 3rem 1rem; /* Espaciado interno. */
+    margin-top: 2rem; /* Margen superior. */
+}
+
+/* Contenedor del pie de página (diseño flexible con divisiones). */
+.footer-container {
+    display: flex; /* Usa Flexbox. */
+    justify-content: space-between; /* Espacia los elementos. */
+    gap: 3rem; /* Espacio entre las columnas. */
+    padding: 2rem 0; /* Espaciado vertical. */
+}
+
+/* Estilos para cada columna dentro del pie de página. */
+.footer-container > div {
+    flex: 1; /* Hace que cada columna ocupe el mismo espacio. */
+    padding-right: 1rem; /* Espaciado a la derecha. */
+    border-right: 1px solid rgba(1, 1, 1, 0.2); /* Línea divisoria a la derecha. */
+}
+
+/* Quita la línea divisoria de la última columna del pie de página. */
+.footer-container > div:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+
+/* Bordes redondeados para la imagen de marca en el pie de página. */
+.footer-brand img {
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+/* Párrafo en la sección de marca del pie de página. */
+.footer-brand p {
+    max-width: 300px;
+    margin-bottom: 1.2rem;
+    color: rgb(8, 8, 6);
+}
+
+/* Transición suave para los iconos de redes sociales. */
+.rrss a img {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Efecto al pasar el ratón por los iconos de redes sociales. */
+.rrss a:hover img {
+    transform: scale(1.15); /* Agranda el icono. */
+    filter: brightness(1.2); /* Aumenta el brillo. */
+}
+
+/* Títulos de las secciones de enlaces y contacto en el pie de página. */
+.footer-links h4,
+.footer-contacto h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* Lista de enlaces en el pie de página (sin viñetas). */
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Margen inferior para cada elemento de la lista de enlaces en el pie de página. */
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+/* Estilos para los enlaces en el pie de página. */
+.footer-links a {
+    color: #090101;
+    text-decoration: none;
+}
+
+/* Subrayado al pasar el ratón por los enlaces del pie de página. */
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Párrafos en la sección de contacto del pie de página. */
+.footer-contacto p {
+    margin: 0.5rem 0;
+    color: #0a0a0a;
+}
+
+/* Estilos para el texto de derechos de autor en el pie de página. */
+.copy {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: rgb(10, 10, 2);
+    opacity: 0.8;
+    letter-spacing: 0.5px;
+    font-style: italic;
+}
+
+/* Estilos para el texto "Hecho por..." en el pie de página. */
+.hecho-por {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #0a0606;
+    opacity: 0.9;
+    font-style: italic;
+    letter-spacing: 0.3px;
+}
+
+/* Submenú lateral (generalmente para navegación rápida). */
+.submenu-lateral {
+    position: fixed; /* Posición fija en la pantalla. */
+    top: 120px; /* A 120px del borde superior. */
+    left: 10px; /* A 10px del borde izquierdo. */
+    display: flex; /* Usa Flexbox. */
+    flex-direction: column; /* Apila elementos verticalmente. */
+    gap: 1rem; /* Espacio entre elementos. */
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia. */
+    border: 1px solid #ddd; /* Borde suave. */
+    border-radius: 10px; /* Bordes redondeados. */
+    padding: 0.5rem; /* Espaciado interno. */
+    box-shadow: 0 2px 6px rgba(204, 25, 25, 0.1); /* Sombra suave. */
+    z-index: 999; /* Asegura que esté por encima de la mayoría de los elementos. */
+}
+
+/* Enlaces dentro del submenú lateral. */
+.submenu-lateral a {
+    font-size: 1.6rem; /* Tamaño del icono. */
+    text-decoration: none; /* Sin subrayado. */
+    color: var(--color-principal); /* Color principal. */
+    transition: transform 0.2s ease, color 0.3s ease; /* Transiciones suaves. */
+}
+
+/* Efecto al pasar el ratón por los enlaces del submenú lateral. */
+.submenu-lateral a:hover {
+    transform: scale(1.2); /* Agranda el icono. */
+    color: var(--color-hover); /* Cambia el color. */
+}
+
+/* Estilo para el enlace activo en el submenú lateral. */
+.submenu-lateral a.activo {
+    background: var(--color-principal); /* Fondo con el color principal. */
+    color: rgb(243, 17, 17); /* Color del texto. */
+    border-radius: 50%; /* Forma circular. */
+    padding: 0.3rem 0.5rem; /* Espaciado interno. */
+}
+
+/* Contenedor de las subcategorías del menú (repetido para claridad). */
+.nav-subcategorias {
+    display: flex; /* Usa Flexbox. */
+    justify-content: center; /* Centra los elementos. */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan. */
+    gap: 1rem; /* Espacio entre elementos. */
+    margin: 2rem 0; /* Margen superior e inferior. */
+}
+
+/* Estilos para los enlaces de navegación de subcategorías. */
+.nav-link {
+    padding: 0.6rem 1.2rem; /* Espaciado interno. */
+    background-color: #fff4f4; /* Color de fondo. */
+    color: var(--color-principal); /* Color principal del texto. */
+    font-weight: bold; /* Texto en negrita. */
+    text-decoration: none; /* Sin subrayado. */
+    border-radius: 8px; /* Bordes redondeados. */
+    border: 2px solid transparent; /* Borde transparente. */
+    transition: all 0.3s ease; /* Transición suave. */
+}
+
+/* Efecto al pasar el ratón por los enlaces de subcategorías. */
+.nav-link:hover {
+    background-color: #dc7268; /* Cambia el color de fondo. */
+    border-color: var(--color-boton); /* Cambia el color del borde. */
+    transform: scale(1.05); /* Agranda ligeramente. */
+}
+
+/* Estilo para el enlace de subcategoría activo. */
+.nav-link.active {
+    background-color: var(--color-principal); /* Fondo con el color principal. */
+    color: rgb(3, 2, 2); /* Color del texto. */
+    border-color: var(--color-principal); /* Borde con el color principal. */
+}
+
+/* ======================================================
+    SECCIÓN MÚSICA NIKKEI
+====================================================== */
+/* Sección de la playlist de música Nikkei. */
+.playlist-nikkei {
+    text-align: center; /* Centra el texto. */
+    margin-top: 3rem; /* Margen superior. */
+    padding: 2rem 1rem; /* Espaciado interno. */
+    background: linear-gradient(to right, #fff5e1, #fbe4d2); /* Degradado de fondo. */
+    border-radius: 1rem; /* Bordes redondeados. */
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08); /* Sombra suave. */
+}
+
+/* Título de la sección de música Nikkei. */
+.playlist-nikkei h2 {
+    font-size: 2rem; /* Tamaño de la fuente. */
+    color: var(--color-principal); /* Color principal. */
+    margin-bottom: 0.5rem; /* Margen inferior. */
+}
+
+/* Párrafo de descripción en la sección de música Nikkei. */
+.playlist-nikkei p {
+    color: #555; /* Color del texto. */
+    margin-bottom: 1.5rem; /* Margen inferior. */
+    font-style: italic; /* Texto en cursiva. */
+}
+
+/* Iframe (reproductor de música) en la sección de música Nikkei. */
+.playlist-nikkei iframe {
+    max-width: 100%; /* Asegura que no se desborde. */
+    border-radius: 12px; /* Bordes redondeados. */
+}
+
+/* Estilos generales para el modal (fondo oscuro, centrado). */
+.modal {
+    position: fixed; /* Posición fija en la pantalla. */
+    top: 0; /* Empieza desde la parte superior. */
+    left: 0; /* Empieza desde la izquierda. */
+    width: 100%; /* Ocupa todo el ancho. */
+    height: 100%; /* Ocupa toda la altura. */
+    background: rgba(0,0,0,0.65); /* Fondo semitransparente oscuro. */
+    display: none; /* Empieza oculto. */
+    justify-content: center; /* Centra el contenido horizontalmente. */
+    align-items: center; /* Centra el contenido verticalmente. */
+    z-index: 2000; /* Asegura que esté muy por encima de otros elementos. */
+}
+
+/* Muestra el modal cuando su ID es el objetivo de un enlace (ej. #miModal). */
+.modal:target {
+    display: flex; /* Muestra el modal con Flexbox. */
+}
+
+/* Contenido del modal (fondo, padding, sombra, animación). */
+.modal-contenido {
+    background: #fff; /* Fondo blanco. */
+    padding: 2rem; /* Espaciado interno. */
+    border-radius: 1rem; /* Bordes redondeados. */
+    max-width: 600px; /* Ancho máximo. */
+    width: 90%; /* Ocupa el 90% del ancho de la pantalla. */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Sombra pronunciada. */
+    animation: fadeInUp 0.6s ease-out; /* Animación de entrada. */
+    position: relative; /* Para posicionar el botón de cerrar. */
+    text-align: left; /* Alinea el texto a la izquierda. */
+    background-color: #dd0f0f; /* Color de fondo del modal (rojo). */
+    padding: 30px; /* Espaciado interno. */
+    border: 1px solid #888; /* Borde. */
+    width: 90%; /* Ancho. */
+    max-width: 600px; /* Ancho máximo. */
+    border-radius: 10px; /* Bordes redondeados. */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Sombra. */
+    animation: fadeIn 0.5s; /* Animación de entrada. */
+}
+
+/* Título dentro del contenido del modal. */
+.modal-contenido h2 {
+    color: var(--color-principal); /* Color principal. */
+    margin-bottom: 1rem; /* Margen inferior. */
+    text-align: center; /* Centra el texto. */
+    margin-bottom: 20px; /* Margen inferior. */
+    color: #333; /* Color del texto. */
+    font-family: 'Yeseva One', serif; /* Tipo de fuente. */
+}
+
+/* Lista dentro del contenido del modal. */
+.modal-contenido ul {
+    padding-left: 1.5rem; /* Padding a la izquierda para las viñetas. */
+    list-style: disc; /* Estilo de viñeta (círculo). */
+    color: #444; /* Color del texto. */
+}
+
+/* Párrafo dentro del contenido del modal. */
+.modal-contenido p {
+    margin-bottom: 1rem; /* Margen inferior. */
+    color: #444; /* Color del texto. */
+}
+
+/* Botón de cerrar el modal. */
+.modal .cerrar {
+    position: absolute; /* Posición absoluta con respecto al modal. */
+    top: 1rem; /* A 1rem del borde superior. */
+    right: 1.2rem; /* A 1.2rem del borde derecho. */
+    font-size: 2rem; /* Tamaño grande del icono/texto. */
+    color: var(--color-principal); /* Color principal. */
+    text-decoration: none; /* Sin subrayado. */
+    color: #aaa; /* Color del texto. */
+    font-size: 32px; /* Tamaño de la fuente. */
+    font-weight: bold; /* Negrita. */
+    position: absolute; /* Posición absoluta. */
+    top: 10px; /* A 10px del borde superior. */
+    right: 20px; /* A 20px del borde derecho. */
+    transition: color 0.3s ease; /* Transición suave. */
+}
+
+/* Efecto al pasar el ratón por el botón de cerrar y al enfocarlo. */
+.cerrar:hover,
+.cerrar:focus {
+    color: #333; /* Cambia el color. */
+    cursor: pointer; /* Cambia el cursor. */
+}
+
+/* Iconos de redes sociales. */
+.rrss-icon {
+    font-size: 1.5rem; /* Tamaño del icono. */
+    color: rgb(249, 244, 244); /* Color de los iconos (blanco casi). */
+    background-color: var(--color-principal); /* Color de fondo (rojo institucional). */
+    padding: 0.6rem; /* Espaciado interno. */
+    margin-right: 0.5rem; /* Margen derecho. */
+    border-radius: 50%; /* Circular. */
+    display: inline-block; /* Permite aplicar transformaciones. */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transiciones suaves. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra. */
+}
+
+/* Efecto al pasar el ratón por los iconos de redes sociales. */
+.rrss-icon:hover {
+    transform: scale(1.1); /* Agranda ligeramente. */
+    background-color: var(--color-hover); /* Cambia el color de fondo (rojo más oscuro). */
+}
+
+/* Icono de Facebook (color específico). */
+.rrss-icon.facebook {
+    background-color: #311cb7; /* Color azul oscuro. */
+}
+
+/* Icono de Instagram (color específico). */
+.rrss-icon.instagram {
+    background-color: #ed51ae; /* Color rosa/morado. */
+}
+
+/* Contenedor del icono del carrito de compras en el encabezado. */
+.cart-icon-container {
+    position: relative; /* Para posicionar el contador. */
+    margin-left: 20px; /* Margen a la izquierda. */
+}
+
+/* Icono del carrito de compras. */
+.cart-icon {
+    font-size: 1.5rem; /* Tamaño del icono. */
+    color: #333; /* Color del icono. */
+    text-decoration: none; /* Sin subrayado. */
+    transition: color 0.3s ease; /* Transición suave del color. */
+}
+
+/* Efecto al pasar el ratón por el icono del carrito. */
+.cart-icon:hover {
+    color: #a30000; /* Cambia el color al rojo. */
+}
+
+/* Contador de elementos en el carrito. */
+.cart-count {
+    position: absolute; /* Posición absoluta con respecto al icono del carrito. */
+    top: -10px; /* A 10px hacia arriba. */
+    right: -10px; /* A 10px hacia la derecha. */
+    background-color: #e74c3c; /* Color de fondo (rojo). */
+    color: white; /* Color del texto. */
+    border-radius: 50%; /* Circular. */
+    padding: 2px 7px; /* Espaciado interno. */
+    font-size: 0.75rem; /* Tamaño de la fuente pequeño. */
+    font-weight: bold; /* Negrita. */
+    display: flex; /* Usa Flexbox para centrar el número. */
+    align-items: center; /* Centra verticalmente. */
+    justify-content: center; /* Centra horizontalmente. */
+    min-width: 20px; /* Ancho mínimo para mantener la forma circular. */
+    height: 20px; /* Altura para mantener la forma circular. */
+}
+
+/* Botón "Añadir al carrito". */
+.add-to-cart-button {
+    background-color: #4CAF50; /* Color verde. */
+    color: white; /* Texto blanco. */
+    padding: 8px 12px; /* Espaciado interno. */
+    border: none; /* Sin borde. */
+    border-radius: 5px; /* Bordes redondeados. */
+    cursor: pointer; /* Cursor de mano. */
+    font-size: 0.9rem; /* Tamaño de la fuente. */
+    margin-top: 10px; /* Margen superior. */
+    transition: background-color 0.3s ease; /* Transición suave del fondo. */
+}
+
+/* Efecto al pasar el ratón por el botón "Añadir al carrito". */
+.add-to-cart-button:hover {
+    background-color: #45a049; /* Tono de verde más oscuro. */
+}
+
+/* Animación de entrada para los modales. */
+@keyframes fadeIn {
+    from {opacity: 0;} /* Empieza invisible. */
+    to {opacity: 1;} /* Termina completamente visible. */
+}
+
+/* Lista de ítems en el carrito (desplazable). */
+.cart-items-list {
+    list-style: none; /* Sin viñetas. */
+    padding: 0; /* Sin padding. */
+    max-height: 300px; /* Altura máxima para permitir desplazamiento. */
+    overflow-y: auto; /* Permite desplazamiento vertical si hay muchos ítems. */
+    border-top: 1px solid #eee; /* Borde superior. */
+    border-bottom: 1px solid #eee; /* Borde inferior. */
+    margin-bottom: 20px; /* Margen inferior. */
+}
+
+/* Estilos para cada ítem en la lista del carrito. */
+.cart-items-list li {
+    padding: 12px 0; /* Espaciado vertical. */
+    display: flex; /* Usa Flexbox. */
+    justify-content: space-between; /* Espacia el nombre, cantidad y total. */
+    align-items: center; /* Centra verticalmente. */
+    font-size: 1rem; /* Tamaño de la fuente. */
+    color: #555; /* Color del texto. */
+}
+
+/* Contenedor de la cantidad del ítem en el carrito. */
+.item-quantity {
+    display: flex; /* Usa Flexbox. */
+    align-items: center; /* Centra verticalmente. */
+    gap: 8px; /* Espacio entre los botones y el número de cantidad. */
+}
+
+/* Botones de cantidad (+/-) en el carrito. */
+.quantity-btn {
+    background-color: #ddd; /* Color de fondo. */
+    border: 1px solid #ccc; /* Borde. */
+    padding: 4px 10px; /* Espaciado interno. */
+    cursor: pointer; /* Cursor de mano. */
+    border-radius: 4px; /* Bordes redondeados. */
+    font-size: 1rem; /* Tamaño de la fuente. */
+    transition: background-color 0.2s ease; /* Transición suave del fondo. */
+}
+
+/* Efecto al pasar el ratón por los botones de cantidad. */
+.quantity-btn:hover {
+    background-color: #ccc; /* Tono de gris más oscuro. */
+}
+
+/* Total del ítem en el carrito. */
+.item-total {
+    font-weight: bold; /* Negrita. */
+    color: #333; /* Color del texto. */
+    white-space: nowrap; /* Evita que el precio se divida en varias líneas. */
+}
+
+/* Resumen del carrito (total, botón de pagar). */
+.cart-summary {
+    margin-top: 20px; /* Margen superior. */
+    padding-top: 15px; /* Padding superior. */
+    text-align: right; /* Alinea el texto a la derecha. */
+    border-top: 1px solid #eee; /* Borde superior. */
+}
+
+/* Párrafos en el resumen del carrito (total). */
+.cart-summary p {
+    margin: 8px 0; /* Margen vertical. */
+    font-size: 1.1rem; /* Tamaño de la fuente. */
+    font-weight: bold; /* Negrita. */
+    color: #333; /* Color del texto. */
+}
+
+/* Botón de "Pagar" en el carrito. */
+.checkout-button {
+    background-color: #008CBA; /* Color azul. */
+    color: white; /* Texto blanco. */
+    padding: 12px 25px; /* Espaciado interno. */
+    border: none; /* Sin borde. */
+    border-radius: 5px; /* Bordes redondeados. */
+    cursor: pointer; /* Cursor de mano. */
+    font-size: 1.1rem; /* Tamaño de la fuente. */
+    margin-top: 15px; /* Margen superior. */
+    transition: background-color 0.3s ease; /* Transición suave del fondo. */
+}
+
+/* Efecto al pasar el ratón por el botón de "Pagar". */
+.checkout-button:hover {
+    background-color: #007bb5; /* Tono de azul más oscuro. */
+}
+
+/* Mensaje cuando el carrito está vacío. */
+#cartEmptyMessage {
+    text-align: center; /* Centra el texto. */
+    padding: 20px; /* Espaciado interno. */
+    color: #777; /* Color del texto. */
+    font-style: italic; /* Texto en cursiva. */
+}
+/* style.css */
+
+/* ======================================================
+    COMENTARIOS CAROUSEL
+====================================================== */
+
+.comentarios-carousel {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative; /* Necesario para posicionar las flechas */
+    max-width: 800px; /* Ancho máximo del carrusel */
+    margin: 0 auto; /* Centra el carrusel */
+    overflow: hidden; /* Oculta los comentarios que no están visibles */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-fondo-claro);
+}
+
+.carousel-track {
+    display: flex; /* Coloca los comentarios en línea */
+    transition: transform 0.5s ease-in-out; /* Animación de deslizamiento */
+    /* La clase 'visible' en el HTML inicial solo ayuda a visualizarlo al principio,
+       pero el JavaScript controlará el 'transform' directamente. */
+}
+
+.testimonial {
+    min-width: 100%; /* Cada comentario ocupa el 100% del ancho del carrusel */
+    box-sizing: border-box; /* Incluye padding en el ancho */
+    padding: 2rem;
+    text-align: center;
+    flex-shrink: 0; /* Evita que los elementos se encojan */
+}
+
+/* Estilos para las flechas de navegación */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--color-principal); /* Tu color rojo */
+    color: white;
+    border: none;
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    z-index: 10; /* Para que estén por encima del contenido */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.carousel-btn:hover {
+    background-color: var(--color-secundario); /* Color de hover */
+}
+
+/* Estado deshabilitado para los botones (inicio/fin del carrusel) */
+.carousel-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #ccc;
+}
+/* ======================================================
+    ANIMACIONES GENERALES (Fade-in)
+====================================================== */
+
+/* Animación para aparecer desde arriba */
+@keyframes fadeInTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación para aparecer desde abajo */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación para aparecer suavemente sin desplazamiento */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Clases para aplicar las animaciones */
+.fade-in-top {
+    opacity: 0; /* Aseguramos que el elemento esté oculto al inicio */
+    animation: fadeInTop 1s ease-out forwards;
+}
+
+.fade-in-up {
+    opacity: 0; /* Aseguramos que el elemento esté oculto al inicio */
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.fade-in {
+    opacity: 0; /* Aseguramos que el elemento esté oculto al inicio */
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Retrasos para animaciones en cascada (ejemplo, puedes ajustarlos) */
+.fade-in-delay-1 { animation-delay: 0.2s; }
+.fade-in-delay-2 { animation-delay: 0.4s; }
+.fade-in-delay-3 { animation-delay: 0.6s; }
+.fade-in-delay-4 { animation-delay: 0.8s; }
+/* Puedes agregar más según necesites */

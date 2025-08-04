@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menú | Miso Cocina Nikkei</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Poppins&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/chatbot.css" /> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+
+<body>
+
+    <header class="header-flex container fade-in-top">
+        <a href="index.html" class="logo" aria-label="Ir al inicio de Miso Cocina Nikkei">
+            <img src="./img/logo.jpeg" alt="Logo Miso Cocina Nikkei" width="65" />
+            <h1>Miso Cocina Nikkei</h1>
+        </a>
+
+        <nav aria-label="Menú principal">
+            <ul class="nav-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Menu.html">Menú</a></li>
+                <li><a href="Nosotros.html">Nosotros</a></li>
+                <li class="cart-icon-container">
+                    <a href="#" class="cart-icon" id="openCartModal" aria-label="Ver carrito de compras">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="menu" class="fade-in-up">
+            <h2 class="section-title">Nuestros Platillos</h2>
+
+            <section id="combos" class="cards-menu">
+                <nav class="nav-subcategorias">
+                    <a href="#combos" class="nav-link active">Combos</a>
+                    <a href="#makis" class="nav-link">Makis</a>
+                    <a href="#piqueos" class="nav-link">Piqueos</a>
+                    <a href="#bebidas" class="nav-link">Bebidas</a>
+                    <a href="#fondos" class="nav-link">Fondos</a>
+                </nav>
+
+                <div class="cards">
+                    <div class="card" data-name="Combo 1" data-price="25.00">
+                        <img src="img/combo1.jpg" alt="Combo 1">
+                        <p>1 tabla de makis (10 cortes)</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ☆</p>
+                        <p class="precio">S/25.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Combo 2" data-price="33.00">
+                        <img src="img/combo2.jpg" alt="Combo 2">
+                        <p>2 tablas de makis (20 cortes)</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+                        <p class="precio">S/33.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Combo 3" data-price="42.00">
+                        <img src="img/combo3.jpg" alt="Combo 3">
+                        <p>3 tablas (30 cortes)</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ☆</p>
+                        <p class="precio">S/42.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Combo Wings" data-price="43.00">
+                        <img src="img/combo_wings.jpg" alt="Combo Wings">
+                        <p>2 tablas + 6 alitas</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+                        <p class="precio">S/43.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Combo Miso" data-price="55.00">
+                        <img src="img/combo_miso.jpg" alt="Combo Miso">
+                        <p>3 tablas + 6 alitas</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+                        <p class="precio">S/55.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Combo Familiar" data-price="91.00">
+                        <img src="img/combo_familiar.jpg" alt="Combo Familiar">
+                        <p>6 tablas + 6 alitas + 1 lt de chicha</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+                        <p class="precio">S/91.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="makis" class="cards-menu">
+                <nav class="nav-subcategorias">
+                    <a href="#combos" class="nav-link">Combos</a>
+                    <a href="#makis" class="nav-link active">Makis</a>
+                    <a href="#piqueos" class="nav-link">Piqueos</a>
+                    <a href="#bebidas" class="nav-link">Bebidas</a>
+                    <a href="#fondos" class="nav-link">Fondos</a>
+                </nav>
+                <div class="cards">
+                    <div class="card" data-name="Tarta Maki" data-price="25.00">
+                        <img src="img/tartar_maki.jpg" alt="Tarta Maki">
+                        <p>Tarta Maki</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ☆</p>
+                        <p class="precio">S/25.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Maki Furai" data-price="25.00">
+                        <img src="img/furai.jpg" alt="Maki Furai">
+                        <p>Maki Furai</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+                        <p class="precio">S/25.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Maki Acevichado" data-price="25.00">
+                        <img src="img/maki_acevichado.jpg" alt="Maki Acevichado">
+                        <p>Maki Acevichado</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+                        <p class="precio">S/25.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Maki Parrillero" data-price="25.00">
+                        <img src="img/maki_parrillero.jpg" alt="Maki Parrillero">
+                        <p>Maki Parrillero</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+                        <p class="precio">S/25.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Leche de Tigre" data-price="25.00">
+                        <img src="img/maki_leche_de_tigre.jpg" alt="Maki Leche de Tigre">
+                        <p>Leche de Tigre</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+                        <p class="precio">S/25.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Maki Monkey" data-price="25.00">
+                        <img src="img/monkey.jpg" alt="Maki Monkey">
+                        <p>Maki Monkey</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+                        <p class="precio">S/25.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Maki Pizza" data-price="25.00">
+                        <img src="img/pizza.jpg" alt="Maki Pizza">
+                        <p>Maki Pizza</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+                        <p class="precio">S/25.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="piqueos" class="cards-menu">
+                <nav class="nav-subcategorias">
+                    <a href="#combos" class="nav-link">Combos</a>
+                    <a href="#makis" class="nav-link">Makis</a>
+                    <a href="#piqueos" class="nav-link active">Piqueos</a>
+                    <a href="#bebidas" class="nav-link">Bebidas</a>
+                    <a href="#fondos" class="nav-link">Fondos</a>
+                </nav>
+                <div class="cards">
+                    <div class="card" data-name="Alitas Terriyaki" data-price="25.00">
+                        <img src="img/alitas_terriyaki.jpg" alt="Alitas Terriyaki">
+                        <p>Alitas Terriyaki</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ☆</p>
+                        <p class="precio">S/25.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Alitas Crispy" data-price="25.00">
+                        <img src="img/alitas_crispy.jpg" alt="Alitas Crispy">
+                        <p>Alitas Crispy</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+                        <p class="precio">S/25.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Cocona Wings" data-price="25.00">
+                        <img src="img/alitas_cocona.jpg" alt="Cocona Wings">
+                        <p>Cocona Wings</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ☆</p>
+                        <p class="precio">S/25.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Ebi Furai" data-price="15.00">
+                        <img src="img/ebi_furai.jpg" alt="Ebi Furai">
+                        <p>Ebi Furai</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+                        <p class="precio">S/15.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Age Gyozas" data-price="16.00">
+                        <img src="img/age.jpg" alt="Age Gyozas">
+                        <p>Age Gyozas</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+                        <p class="precio">S/16.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="bebidas" class="cards-menu">
+                <nav class="nav-subcategorias">
+                    <a href="#combos" class="nav-link">Combos</a>
+                    <a href="#makis" class="nav-link">Makis</a>
+                    <a href="#piqueos" class="nav-link">Piqueos</a>
+                    <a href="#bebidas" class="nav-link active">Bebidas</a>
+                    <a href="#fondos" class="nav-link">Fondos</a>
+                </nav>
+                <div class="cards">
+                    <div class="card" data-name="Inka Cola 600ml" data-price="4.00">
+                        <img src="img/inkakola.jpg" alt="Inka Cola">
+                        <p>Inka Cola 600ml</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+                        <p class="precio">S/4.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Coca Cola 600ml" data-price="4.00">
+                        <img src="img/cocacola.jpg" alt="Coca Cola">
+                        <p>Coca Cola 600ml</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ☆</p>
+                        <p class="precio">S/4.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Fanta 600ml" data-price="4.00">
+                        <img src="img/fanta.jpg" alt="Fanta">
+                        <p>Fanta 600ml</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ☆</p>
+                        <p class="precio">S/4.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Sprite 600ml" data-price="4.00">
+                        <img src="img/sprite.jpg" alt="Sprite">
+                        <p>Sprite 600ml</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ☆</p>
+                        <p class="precio">S/4.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Agua San Mateo 600ml" data-price="4.00">
+                        <img src="img/mateo.jpg" alt="San Mateo">
+                        <p>Agua San Mateo 600ml</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ☆</p>
+                        <p class="precio">S/4.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="fondos" class="cards-menu">
+                <nav class="nav-subcategorias">
+                    <a href="#combos" class="nav-link">Combos</a>
+                    <a href="#makis" class="nav-link">Makis</a>
+                    <a href="#piqueos" class="nav-link">Piqueos</a>
+                    <a href="#bebidas" class="nav-link">Bebidas</a>
+                    <a href="#fondos" class="nav-link active">Fondos</a>
+                </nav>
+                <div class="cards">
+                    <div class="card" data-name="Ramen" data-price="22.00">
+                        <img src="img/ramen.jpg" alt="Ramen">
+                        <p>Ramen</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+                        <p class="precio">S/22.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Yakimeshi con pollo" data-price="20.00">
+                        <img src="img/yakimeshi.jpg" alt="Yakimeshi">
+                        <p>Yakimeshi con pollo</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ☆</p>
+                        <p class="precio">S/20.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Chicken Katsu" data-price="20.00">
+                        <img src="img/chickenkatzu.jpg" alt="Chicken Katsu">
+                        <p>Chicken Katsu</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ☆</p>
+                        <p class="precio">S/20.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                    <div class="card" data-name="Katzudon" data-price="20.00">
+                        <img src="img/katzudon.jpg" alt="Katzudon">
+                        <p>Katzudon</p>
+                        <p>⭐ ⭐ ⭐ ⭐ ☆</p>
+                        <p class="precio">S/20.00</p>
+                        <button class="add-to-cart-button">Añadir al carrito</button>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <div class="footer-brand">
+                <img src="./img/logo.jpeg" alt="Logo Miso" width="60" />
+                <p>Fusión de cultura, tradición y sabor. Vive la experiencia Nikkei con nosotros.</p>
+                <div class="rrss">
+                    <a href="https://www.facebook.com/p/Miso-Street-Nikkei-100064955231099/" target="_blank" aria-label="Facebook"
+                        class="rrss-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/misonikkei/" target="_blank" aria-label="Instagram"
+                        class="rrss-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="Nosotros.html#reservas">Reservas</a></li>
+                    <li><a href="https://www.rappi.com.pe/restaurantes/61289-miso-cocina-nikkei" target="_blank"
+                            rel="noopener noreferrer">Pedidos</a></li>
+                    <li><a href="#" onclick="return false;">Pagos (próximamente)</a></li>
+                    <li><a href="#modal-terminos">Términos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contacto">
+                <h4>Contacto</h4>
+                <p><strong>Teléfono:</strong> +51 999 888 777</p>
+                <p><strong>Email:</strong> contacto@misonikkei.pe</p>
+                <p><strong>Dirección:</strong> Av. los Ficos 220, San Juan de Lurigancho</p>
+            </div>
+        </div>
+
+        <p class="copy">&copy; 2025 Miso Cocina Nikkei. Todos los derechos reservados.</p>
+        <p class="hecho-por">Hecho por el Grupo 6 — Joseph Salazar, Omar Oropeza y Piero Rojas.</p>
+    </footer>
+
+    <div id="modal-terminos" class="modal">
+        <div class="modal-contenido">
+            <a href="#!" class="cerrar" aria-label="Cerrar">&times;</a>
+            <h2>Términos y condiciones</h2>
+            <p>
+                Bienvenido a Miso Cocina Nikkei. Al utilizar nuestro sitio, aceptas los siguientes términos:
+            </p>
+            <ul>
+                <li>Las reservas están sujetas a disponibilidad y deben ser confirmadas por el restaurante.</li>
+                <li>Los datos ingresados en el formulario de reservas serán usados únicamente para gestionar tu atención.</li>
+                <li>No nos responsabilizamos por retrasos ocasionados por terceros en servicios de delivery.</li>
+                <li>Nos reservamos el derecho de modificar los platos o precios sin previo aviso.</li>
+                <li>El contenido de esta página es parte de un proyecto académico.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-contenido">
+            <a href="#!" class="cerrar" id="closeCartModal" aria-label="Cerrar carrito">&times;</a>
+            <h2>Tu Carrito de Compras</h2>
+            <ul id="cartItemsList" class="cart-items-list">
+            </ul>
+            <div id="cartEmptyMessage">
+                <p>Tu carrito está vacío.</p>
+            </div>
+            <div class="cart-summary">
+                <p>Total: <span id="cartTotal">S/0.00</span></p>
+                <button class="checkout-button" id="proceedToPayment">Proceder al pago</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="paymentModal" class="modal">
+        <div class="modal-contenido">
+            <a href="#!" class="cerrar" id="closePaymentModal" aria-label="Cerrar pago">&times;</a>
+            <h2>Información de Pago</h2>
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label for="customerName">Nombre Completo:</label>
+                    <input type="text" id="customerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="cardNumber">Número de Tarjeta:</label>
+                    <input type="text" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" required
+                        pattern="\d{4}\s?\d{4}\s?\d{4}\s?\d{4}" title="Formato: 1234 5678 9012 3456">
+                </div>
+                <div class="form-group">
+                    <label for="expiryDate">Fecha de Vencimiento:</label>
+                    <input type="text" id="expiryDate" placeholder="MM/AA" required pattern="(0[1-9]|1[0-2])\/\d{2}"
+                        title="Formato: MM/AA">
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" placeholder="XXX" required pattern="\d{3,4}" title="3 o 4 dígitos">
+                </div>
+                <button type="submit" class="submit-payment-button">Confirmar Compra</button>
+            </form>
+            <div id="purchaseConfirmation" style="display: none; text-align: center; margin-top: 20px;">
+                <h3>¡Compra Realizada con Éxito!</h3>
+                <p>¡Gracias por tu pedido en Miso Cocina Nikkei!</p>
+                <p>Puedes <a href="basededatos.html" target="_blank">ver el historial de compras aquí</a> (simulación).</p>
+            </div>
+        </div>
+    </div>
+
+    <button id="chatbot-toggle-btn">💬</button>
+    <div id="chatbot-container" class="chatbot-container">
+        <div class="chatbot-header">
+            <span>Asistente Virtual Misoku</span>
+            <button class="chatbot-close-btn">×</button>
+        </div>
+        <div class="chatbot-messages">
+            <div class="message bot">¡Hola! Soy Misoku, tu asistente virtual. ¿En qué puedo ayudarte hoy?</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Escribe tu mensaje..." id="user-input">
+            <button id="send-btn">➤</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/menu.js"></script>
+
+</body>
+
+</html>

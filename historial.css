@@ -1,0 +1,68 @@
+/* Estilos específicos para basededatos.html (Historial de Compras) */
+body {
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: "Yeseva One", serif;
+    text-align: center;
+    color: #a30000;
+    margin-bottom: 30px;
+}
+
+.purchase-entry {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.purchase-entry strong {
+    color: #a30000;
+}
+
+.purchase-entry ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.purchase-entry ul li {
+    margin-bottom: 5px;
+    padding-left: 15px;
+    border-left: 3px solid #eee;
+}
+
+.no-purchases {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+}
+
+.clear-button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.clear-button:hover {
+    background-color: #c0392b;
+}

@@ -1,0 +1,142 @@
+/* ======================================================
+    LIBRO DE RECLAMACIONES
+====================================================== */
+.libro-reclamaciones-contenido {
+    /* Fondo del modal de reclamaciones, igual que otros modales oscuros */
+    background: var(--bg-medium-dark);
+    /* Borde y sombra consistentes con otros modales/cards */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+    padding: 2.5rem; /* Más padding para el formulario */
+    max-width: 700px; /* Ancho máximo para el formulario */
+}
+
+.libro-reclamaciones-contenido h2 {
+    color: var(--primary-color); /* Título principal del formulario */
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+}
+
+.libro-reclamaciones-contenido h3 {
+    color: var(--color-texto-general); /* Subtítulos de sección del formulario */
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.reclamacion-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas para los campos del formulario */
+    gap: 1.5rem 2rem; /* Espacio entre filas y columnas */
+}
+
+.reclamacion-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.reclamacion-form label {
+    font-weight: 600;
+    color: var(--color-texto-general); /* Color de texto para las etiquetas */
+    font-size: 0.95rem;
+}
+
+.reclamacion-form input[type="text"],
+.reclamacion-form input[type="email"],
+.reclamacion-form input[type="tel"],
+.reclamacion-form input[type="number"],
+.reclamacion-form input[type="date"],
+.reclamacion-form select,
+.reclamacion-form textarea {
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--border-color); /* Borde oscuro para los inputs */
+    background-color: var(--bg-dark); /* Fondo más oscuro para los inputs */
+    color: var(--color-texto-general); /* Texto claro en los inputs */
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Asegura que tomen todo el ancho de su columna */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+.reclamacion-form input:focus,
+.reclamacion-form select:focus,
+.reclamacion-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(240, 160, 160, 0.25); /* Sombra de foco con tu color primario */
+}
+
+.reclamacion-form textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 80px; /* Altura mínima */
+}
+
+/* Estilos específicos para el checkbox */
+.reclamacion-form .checkbox-group {
+    grid-column: span 2; /* Ocupa ambas columnas */
+    flex-direction: row; /* Para que el checkbox y label estén en línea */
+    align-items: flex-start; /* Alinea el checkbox arriba si el texto es largo */
+    gap: 0.8rem;
+}
+
+.reclamacion-form input[type="checkbox"] {
+    width: auto; /* Ancho automático para checkbox */
+    margin-top: 5px; /* Pequeño ajuste para alinear con el texto */
+    transform: scale(1.2); /* Hace el checkbox un poco más grande */
+    accent-color: var(--primary-color); /* Cambia el color del checkbox si el navegador lo soporta */
+}
+
+.reclamacion-form .checkbox-label {
+    font-size: 0.9rem;
+    color: var(--color-texto-general);
+    line-height: 1.4;
+}
+
+.reclamacion-form button[type="submit"] {
+    grid-column: span 2; /* El botón de enviar ocupa ambas columnas */
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    background-color: var(--primary-color);
+    color: var(--text-light); /* Texto oscuro en el botón */
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.reclamacion-form button[type="submit"]:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Mensajes de validación */
+.form-group .error-message {
+    color: var(--danger-color); /* Color rojo para errores */
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+    display: none; /* Oculto por defecto, se muestra con JS */
+}
+
+/* Mostrar mensaje de error cuando el input es inválido y se intenta enviar */
+.reclamacion-form input:invalid:not(:placeholder-shown),
+.reclamacion-form select:invalid:not(:placeholder-shown),
+.reclamacion-form textarea:invalid:not(:placeholder-shown) {
+    border-color: var(--danger-color); /* Resaltar con rojo si es inválido */
+}
+
+/* Responsive para el formulario */
+@media (max-width: 768px) {
+    .reclamacion-form {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+        gap: 1.5rem;
+    }
+
+    .reclamacion-form .checkbox-group,
+    .reclamacion-form button[type="submit"] {
+        grid-column: span 1; /* También ocupan una sola columna */
+    }
+} 
